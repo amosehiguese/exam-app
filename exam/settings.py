@@ -53,6 +53,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "exam.urls"
 
+AUTH_USER_MODEL = "users.User"
+
 
 TEMPLATES = [
     {
