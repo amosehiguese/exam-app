@@ -20,3 +20,19 @@ class UserTest(TestCase):
         self.assertFalse(user.is_superuser)
         self.assertFalse(user.is_verified)
         self.assertTrue(user.date_joined)
+
+    def test_create_superuser(self):
+        User = get_user_model()
+        user = User.objects.create_superuser(
+            email='superuser@email.com',
+            password='superuser123',
+        )
+
+        self.assertEqual(user.email, 'superuser@email.com')
+        self.assertTrue(user.check_password('superuser123'))
+        self.assertFalse(user.check_password('wrongpass'))
+        self.assertTrue(user.is_active)
+        self.assertTrue(user.is_staff)
+        self.assertTrue(user.is_superuser)
+        self.assertTrue(user.is_verified)
+        self.assertTrue(user.date_joined)
