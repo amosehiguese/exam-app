@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser,BaseUserManager, AbstractUser
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from django.core.mail import send_mail
@@ -24,7 +25,7 @@ class UserManager(BaseUserManager):
         return self._create_user(email, password, is_staff=True, is_superuser=True, is_verified=True, **kwargs)
 
 
-class User(AbstractBaseUser):
+class User(AbstractBaseUser, PermissionRequiredMixin):
     email = models.CharField(max_length=255, unique=True)
     first_name = models.CharField(_('first name'),max_length=50, blank=True)
     last_name =  models.CharField(_('last name'),max_length=50, blank=True)
