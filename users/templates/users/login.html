@@ -1,0 +1,18 @@
+{% extends 'users/login' %} {% load crispy_forms_tags %} {% block body %}
+<div class="container w-50 p-3">
+  <h1>Sign In</h1>
+  <form method="post">
+    {% csrf_token %} {{form|crispy}}
+    <div class="d-grid gap-2 d-md-block">
+      <button class="btn btn-primary btn-outline" type="submit">Sign In</button>
+    </div>
+  </form>
+  <div class="border-top pt-3">
+    <small class="text-muted">
+      Don't Have An Account?
+      <a class="ml-2" href="{% url 'sign-up' %}">Sign Up</a>
+    </small>
+  </div>
+</div>
+
+{% endblock %}
