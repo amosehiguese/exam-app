@@ -3,7 +3,7 @@
   <h1>Sign Up</h1>
   <form method="post">
     {% csrf_token %} {{form|crispy}}
-    <div class="d-grid gap-2 d-md-block">
+    <div class="d-grid gap-2 d-md-block btn-container">
       <button class="btn btn-primary btn-outline" type="submit">Sign Up</button>
     </div>
   </form>
