@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 
+from django.utils.translation import gettext_lazy as _
+
 User = get_user_model()
 
 class UserRegistrationForm(UserCreationForm):
@@ -12,4 +14,9 @@ class UserRegistrationForm(UserCreationForm):
         fields = ('email', 'password1', 'password2')
 
     def clean_email(self):
-        pass
+        email = self.cleaned_data.get('email')
+        try:
+            User.objects.get(email=email)
+        except User.DoesNotExist:
+            return email
+        raise forms.ValidationError(_('A user with that email already exists.'))
