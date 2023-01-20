@@ -6,3 +6,8 @@ h5,
 h6 {
   text-align: center;
 }
+
+.btn-container {
+  display: grid;
+  grid-template-columns: auto;
+}
