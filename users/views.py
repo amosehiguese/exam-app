@@ -17,3 +17,10 @@ class SignUpForm(View):
         if form.is_valid():
             form.save()
             return redirect('login')
+
+class Verify_Phone_Number(View):
+    def get(self, request, *args, **kwargs):
+        pass
+    
+    def post(self, request, *args, **kwargs):
+        pass
