@@ -26,3 +26,6 @@ class PhoneNumberVerificationForm(forms.Form):
     '''A simple form for the user to enter their phone number'''
     phone_number = forms.CharField(max_length=20)
 
+class PhoneNumberVerificationCodeForm(forms.Form):
+    verification_code = forms.CharField(max_length=6)
+
