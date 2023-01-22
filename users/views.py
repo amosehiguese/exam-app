@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from .models import User
-from .forms import UserRegistrationForm
+from .forms import UserRegistrationForm, PhoneNumberVerificationForm, PhoneNumberVerificationCodeForm
 
 class SignUpForm(View):
     form_class = UserRegistrationForm
@@ -19,6 +19,9 @@ class SignUpForm(View):
             return redirect('login')
 
 class Verify_Phone_Number(View):
+    form_class = PhoneNumberVerificationForm
+    initial = {'key':'value'}
+    template_name = 'users/verify_phone_number.html'
     def get(self, request, *args, **kwargs):
         pass
     
