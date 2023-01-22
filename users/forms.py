@@ -23,9 +23,10 @@ class UserRegistrationForm(UserCreationForm):
         raise forms.ValidationError(_('A user with that email already exists.'))
 
 class PhoneNumberVerificationForm(forms.Form):
-    '''A simple form for the user to enter their phone number'''
+    '''A simple form for the user to enter their phone number.'''
     phone_number = forms.CharField(max_length=20)
 
 class PhoneNumberVerificationCodeForm(forms.Form):
+    '''A form that includes a single field for the user to enter the verification code they received via SMS.'''
     verification_code = forms.CharField(max_length=6)
 
