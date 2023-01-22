@@ -54,3 +54,9 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     class Meta:
         db_table='users'
+
+class PhoneNumber(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    number =  models.CharField(max_length=20)
+    verification_code = models.CharField(max_length=6, blank=True)
+    verification_code_expiration = models.DateTimeField(blank=True, null=True)
