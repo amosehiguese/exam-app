@@ -11,3 +11,5 @@ class Exam(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     questions = models.ManyToManyField('Question', related_name='exams')
     creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='created_exams')
+    duration = models.DurationField()
+    pass_score = models.IntegerField()
