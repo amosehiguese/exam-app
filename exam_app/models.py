@@ -13,3 +13,5 @@ class Exam(models.Model):
     creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='created_exams')
     duration = models.DurationField()
     pass_score = models.IntegerField()
+    active = models.BooleanField(default=True)
+    max_attempt = models.IntegerField(default=1)
