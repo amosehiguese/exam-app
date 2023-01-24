@@ -8,11 +8,11 @@ from django.utils.translation import gettext_lazy as _
 User = get_user_model()
 
 class UserRegistrationForm(UserCreationForm):
-    password1 = forms.CharField(widget=forms.PasswordInput, help_text='Enter at least 8 character', label='Password')
+    password1 = forms.CharField(widget=forms.PasswordInput, help_text='Enter at least 8 characters', label='Password')
     password2 = forms.CharField(widget=forms.PasswordInput, help_text=None, label='Re-enter Password')
     class Meta:
         model = User
-        fields = ('email', 'password1', 'password2')
+        fields = ('first_name', 'last_name','email', 'password1', 'password2')
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
