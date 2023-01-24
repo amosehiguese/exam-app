@@ -34,6 +34,8 @@ class Question(models.Model):
     def __str__(self) -> str:
         return self.text
     
+    class Meta:
+        db_table = 'questions'
     
 
 class Choice(models.Model):
