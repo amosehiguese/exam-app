@@ -60,3 +60,6 @@ class PhoneNumber(models.Model):
     number =  models.CharField(max_length=20)
     verification_code = models.CharField(max_length=6, blank=True)
     verification_code_expiration = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        db_table = 'phone_numbers'
