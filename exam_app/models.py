@@ -25,4 +25,5 @@ class Exam(models.Model):
 
 
 class Question(models.Model):
-    pass
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
