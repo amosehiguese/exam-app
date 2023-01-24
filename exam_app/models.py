@@ -22,3 +22,7 @@ class Exam(models.Model):
 
     class Meta:
         db_table = 'exams'
+
+
+class Question(models.Model):
+    pass
