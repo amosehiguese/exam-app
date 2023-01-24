@@ -10,7 +10,7 @@ class Exam(models.Model):
     created_at = models.DateTimeField(auto_now_add= True)
     updated_at = models.DateTimeField(auto_now=True)
     questions = models.ManyToManyField('Question', related_name='exams')
-    creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='created_exams')
+    examiner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='created_exams')
     duration = models.DurationField()
     pass_score = models.IntegerField()
     active = models.BooleanField(default=True)
@@ -27,3 +27,8 @@ class Exam(models.Model):
 class Question(models.Model):
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    choices = models.ManyToManyField('Choice', related_name='questions')
+
+class Choice(models.Model):
+    pass
