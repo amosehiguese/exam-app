@@ -15,3 +15,7 @@ class Exam(models.Model):
     pass_score = models.IntegerField()
     active = models.BooleanField(default=True)
     max_attempt = models.IntegerField(default=1)
+
+    def __str__(self):
+        return self.name
+    
