@@ -50,4 +50,4 @@ class Choice(models.Model):
         db_table = 'choices'
 
 class ExamParticipation(models.Model):
-    pass
+    student = models.ForeignKey(User, on_delete=models.CASCADE, related_name='exam_participations')
