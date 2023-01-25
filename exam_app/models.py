@@ -48,3 +48,6 @@ class Choice(models.Model):
 
     class Meta:
         db_table = 'choices'
+
+class ExamParticipation(models.Model):
+    pass
