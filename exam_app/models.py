@@ -56,3 +56,6 @@ class ExamParticipation(models.Model):
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     answers = models.ManyToManyField(Choice, related_name='exam_participations', through='Answer')
+
+class Answer(models.Model):
+    pass
