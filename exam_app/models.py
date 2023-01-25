@@ -45,3 +45,6 @@ class Choice(models.Model):
 
     def __str__(self) -> str:
         return self.text
+
+    class Meta:
+        db_table = 'choices'
