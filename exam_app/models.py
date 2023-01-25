@@ -53,3 +53,5 @@ class ExamParticipation(models.Model):
     student = models.ForeignKey(User, on_delete=models.CASCADE, related_name='exam_participations')
     exam = models.ForeignKey(Exam, on_delete=models.CASCADE, related_name='participations')
     score = models.FloatField()
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
