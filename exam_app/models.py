@@ -39,4 +39,5 @@ class Question(models.Model):
     
 
 class Choice(models.Model):
-    pass
+    text = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
