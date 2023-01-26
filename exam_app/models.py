@@ -67,3 +67,4 @@ class Course(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
     exams = models.ManyToManyField('Exam', related_name='courses')
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='created_courses')
