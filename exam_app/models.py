@@ -59,4 +59,5 @@ class ExamParticipation(models.Model):
 
 class Answer(models.Model):
     participation = models.ForeignKey(ExamParticipation, on_delete=models.CASCADE, related_name='answers')
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='answers')
     
