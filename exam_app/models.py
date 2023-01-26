@@ -63,3 +63,5 @@ class Answer(models.Model):
     choice = models.ForeignKey(Choice, on_delete=models.CASCADE, related_name='answers')
     is_correct = models.BooleanField()
     
+class Course(models.Model):
+    pass
