@@ -65,3 +65,4 @@ class Answer(models.Model):
     
 class Course(models.Model):
     name = models.CharField(max_length=255)
+    description = models.TextField()
