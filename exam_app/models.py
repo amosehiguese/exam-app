@@ -58,4 +58,5 @@ class ExamParticipation(models.Model):
     answers = models.ManyToManyField(Choice, related_name='exam_participations', through='Answer')
 
 class Answer(models.Model):
-    pass
+    participation = models.ForeignKey(ExamParticipation, on_delete=models.CASCADE, related_name='answers')
+    
