@@ -16,7 +16,7 @@ class Exam(models.Model):
     active = models.BooleanField(default=True)
     max_attempt = models.IntegerField(default=1)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
     
 
@@ -68,3 +68,6 @@ class Course(models.Model):
     description = models.TextField()
     exams = models.ManyToManyField('Exam', related_name='courses')
     creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='created_courses')
+
+    def __str__(self) -> str:
+        return  self.name
