@@ -64,4 +64,4 @@ class Answer(models.Model):
     is_correct = models.BooleanField()
     
 class Course(models.Model):
-    pass
+    name = models.CharField(max_length=255)
