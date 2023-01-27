@@ -81,4 +81,4 @@ class StudentGroup(models.Model):
         return self.name
 
 class ExamConfiguration(models.Model):
-    pass
+    exam = models.OneToOneField('Exam', on_delete=models.CASCADE, related_name='configuration')
