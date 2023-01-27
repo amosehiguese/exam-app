@@ -75,3 +75,4 @@ class Course(models.Model):
 class StudentGroup(models.Model):
     name = models.CharField(max_length=255)
     students = models.ManyToManyField(User, related_name='group')
+    exams = models.ManyToManyField('Exam', related_name='groups')
