@@ -90,3 +90,6 @@ class ExamConfiguration(models.Model):
     show_result = models.BooleanField(default=True)
     show_answers = models.BooleanField(default=False)
     show_score = models.BooleanField(default=False)
+
+    def __str__(self) -> str:
+        return f'Configuration for {self.exam.name}'
