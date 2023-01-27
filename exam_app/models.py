@@ -71,3 +71,6 @@ class Course(models.Model):
 
     def __str__(self) -> str:
         return  self.name
+
+class StudentGroup(models.Model):
+    pass
