@@ -84,3 +84,4 @@ class ExamConfiguration(models.Model):
     exam = models.OneToOneField('Exam', on_delete=models.CASCADE, related_name='configuration')
     number_of_questions = models.IntegerField()
     duration = models.DurationField()
+    attempts_allowed = models.IntegerField()
