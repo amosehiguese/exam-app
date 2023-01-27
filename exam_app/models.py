@@ -85,3 +85,4 @@ class ExamConfiguration(models.Model):
     number_of_questions = models.IntegerField()
     duration = models.DurationField()
     attempts_allowed = models.IntegerField()
+    randomize_questions = models.BooleanField(default=True)
