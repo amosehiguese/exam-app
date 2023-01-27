@@ -88,3 +88,4 @@ class ExamConfiguration(models.Model):
     randomize_questions = models.BooleanField(default=True)
     randomize_answers = models.BooleanField(default=True)
     show_result = models.BooleanField(default=True)
+    show_answers = models.BooleanField(default=False)
