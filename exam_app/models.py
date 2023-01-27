@@ -73,4 +73,5 @@ class Course(models.Model):
         return  self.name
 
 class StudentGroup(models.Model):
-    pass
+    name = models.CharField(max_length=255)
+    students = models.ManyToManyField(User, related_name='group')
