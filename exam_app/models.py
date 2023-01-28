@@ -29,6 +29,7 @@ class Question(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     choices = models.ManyToManyField('Choice', related_name='questions')
+    image = models.ImageField(upload_to='question_image')
     correct_choice = models.ForeignKey('Choice', on_delete=models.SET_NULL, related_name='correct_for', null=True)
 
     def __str__(self) -> str:
