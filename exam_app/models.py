@@ -93,3 +93,6 @@ class ExamConfiguration(models.Model):
 
     def __str__(self) -> str:
         return f'Configuration for {self.exam.name}'
+
+class ExamResult(models.Model):
+    pass
