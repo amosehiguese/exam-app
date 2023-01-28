@@ -100,3 +100,6 @@ class ExamResult(models.Model):
     score = models.FloatField()
     passed = models.BooleanField()
     submitted_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'score:{self.score}, passed:{self.passed}'
