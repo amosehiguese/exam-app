@@ -95,4 +95,4 @@ class ExamConfiguration(models.Model):
         return f'Configuration for {self.exam.name}'
 
 class ExamResult(models.Model):
-    pass
+    exam = models.ForeignKey('Exam', on_delete=models.CASCADE, related_name='results')
