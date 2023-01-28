@@ -99,3 +99,4 @@ class ExamResult(models.Model):
     student = models.ForeignKey(User, on_delete=models.CASCADE, related_name='results')
     score = models.FloatField()
     passed = models.BooleanField()
+    submitted_at = models.DateTimeField(auto_now_add=True)
