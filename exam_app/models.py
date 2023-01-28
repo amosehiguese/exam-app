@@ -98,3 +98,4 @@ class ExamResult(models.Model):
     exam = models.ForeignKey('Exam', on_delete=models.CASCADE, related_name='results')
     student = models.ForeignKey(User, on_delete=models.CASCADE, related_name='results')
     score = models.FloatField()
+    passed = models.BooleanField()
