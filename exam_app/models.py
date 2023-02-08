@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 from django.contrib.auth import get_user_model
 
@@ -6,6 +7,7 @@ User = get_user_model()
 # Create your models here.
 
 class Exam(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add= True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -25,6 +27,7 @@ class Exam(models.Model):
 
 
 class Question(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -51,15 +54,15 @@ class Choice(models.Model):
         db_table = 'choices'
 
 class ExamParticipation(models.Model):
-    student = models.ForeignKey(User, on_delete=models.CASCADE, related_name='exam_participations')
-    exam = models.ForeignKey(Exam, on_delete=models.CASCADE, related_name='participations')
+    student = models.ForeignKey(User, on_delete=models.CASCADE)
+    exam = models.ForeignKey(Exam, on_delete=models.CASCADE)
     score = models.FloatField()
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
-    answers = models.ManyToManyField(Choice, related_name='exam_participations', through='Answer')
+    answers = models.ManyToManyField(Choice, through='Answer')
 
 class Answer(models.Model):
-    participation = models.ForeignKey(ExamParticipation, on_delete=models.CASCADE, related_name='answers')
+    participation = models.ForeignKey(ExamParticipation, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='answers')
     choice = models.ForeignKey(Choice, on_delete=models.CASCADE, related_name='answers')
     is_correct = models.BooleanField()
