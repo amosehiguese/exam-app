@@ -43,6 +43,7 @@ class Question(models.Model):
     
 
 class Choice(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)    
     text = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -54,6 +55,7 @@ class Choice(models.Model):
         db_table = 'choices'
 
 class ExamParticipation(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)    
     student = models.ForeignKey(User, on_delete=models.CASCADE)
     exam = models.ForeignKey(Exam, on_delete=models.CASCADE)
     score = models.FloatField()
@@ -62,12 +64,14 @@ class ExamParticipation(models.Model):
     answers = models.ManyToManyField(Choice, through='Answer')
 
 class Answer(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)    
     participation = models.ForeignKey(ExamParticipation, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='answers')
     choice = models.ForeignKey(Choice, on_delete=models.CASCADE, related_name='answers')
     is_correct = models.BooleanField()
     
 class Course(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)    
     name = models.CharField(max_length=255)
     description = models.TextField()
     exams = models.ManyToManyField('Exam', related_name='courses')
@@ -77,6 +81,7 @@ class Course(models.Model):
         return  self.name
 
 class StudentGroup(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)    
     name = models.CharField(max_length=255)
     students = models.ManyToManyField(User, related_name='group')
     exams = models.ManyToManyField('Exam', related_name='groups')
@@ -85,6 +90,7 @@ class StudentGroup(models.Model):
         return self.name
 
 class ExamConfiguration(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)    
     exam = models.OneToOneField('Exam', on_delete=models.CASCADE, related_name='configuration')
     number_of_questions = models.IntegerField()
     duration = models.DurationField()
@@ -99,6 +105,7 @@ class ExamConfiguration(models.Model):
         return f'Configuration for {self.exam.name}'
 
 class ExamResult(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)    
     exam = models.ForeignKey('Exam', on_delete=models.CASCADE, related_name='results')
     student = models.ForeignKey(User, on_delete=models.CASCADE, related_name='results')
     score = models.FloatField()
